@@ -10,6 +10,13 @@
   </head>
 
   <body>
-    <%= yield %>
+    <%= render 'navbar' %>
+
+    <div class="container">
+      <%= render 'flash' %>
+      <%= render partial: 'carts/index' %>
+
+      <%= yield %>
+    </div>
   </body>
 </html>

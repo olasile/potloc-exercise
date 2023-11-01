@@ -1,0 +1,15 @@
+.modal.right .modal-dialog {
+  position:fixed;
+  right: 0;
+  margin: auto;
+  width: 1000px;
+  height: 100%;
+  -webkit-transform: translate3d(0%, 0, 0);
+  -ms-transform: translate3d(0%, 0, 0);
+  -o-transform: translate3d(0%, 0, 0);
+  transform: translate3d(0%, 0, 0);
+}
+
+.modal-content {
+  border-radius: 0;
+}
