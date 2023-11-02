@@ -1,0 +1,9 @@
+---
+:concurrency: 5
+:queues:
+  - cart_cleanup
+:scheduler:
+  :schedule:
+    cart_cleanup_job:
+      cron: '0 0 * * *'
+      class: CartCleanupJob

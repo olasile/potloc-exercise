@@ -1,11 +1,15 @@
 class CartProductsController < ApplicationController
-  before_action :set_cart_product, only: [:destroy]
+  before_action :set_cart_product, only: [:destroy, :update]
 
-  
+  def update
+    @cart_product.update(permitted_params)
+  end
+
   def create
-    cart_product = CartProduct.new(permitted_params)
-    cart_product.product = Product.find(params[:cart_product][:product_id])
-    current_cart.cart_products << cart_product
+    product = Product.find(params[:cart_product][:product_id])
+    cart_product = CartProduct.find_or_initialize_by(product_id: product.id)
+    cart_product.persisted? ? cart_product.update(quantity: params[:cart_product][:quantity]) : current_cart.cart_products << cart_product
+
   end
 
   def destroy

@@ -1,0 +1,16 @@
+<div class="row">
+  <div class="col-md-6">
+    <%= cart_product.product.name %>
+  </div>
+
+  <div class="col-md-3">
+    <%= form_for cart_product, url: cart_product_path(cart_product.id), remote: true, method: :put do |f| %>
+        <%= f.number_field :quantity, class: 'form-control' %>
+        <%= button_tag 'Update', class: 'btn btn-primary mt-2 mb-2' %>
+      <% end %>
+  </div>
+
+  <div class="col-md-3">
+    <%= link_to 'Remove', cart_product_path(cart_product.id), remote: true, method: :delete %>
+  </div>
+</div>
