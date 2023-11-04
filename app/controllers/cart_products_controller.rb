@@ -8,8 +8,8 @@ class CartProductsController < ApplicationController
   def create
     product = Product.find(params[:cart_product][:product_id])
     cart_product = CartProduct.find_or_initialize_by(product_id: product.id)
-    cart_product.persisted? ? cart_product.update(quantity: params[:cart_product][:quantity]) : current_cart.cart_products << cart_product
-
+    cart_product.quantity = params[:cart_product][:quantity].to_i
+    cart_product.persisted? ? cart_product.save : current_cart.cart_products << cart_product
   end
 
   def destroy

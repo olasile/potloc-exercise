@@ -7,5 +7,5 @@ Rails.application.routes.draw do
   resources :products
   resources :orders
   resources :cart_products
-  resources :dashboard, only: [:index]
+  resources :inventory_monitor, only: [:index]
 end

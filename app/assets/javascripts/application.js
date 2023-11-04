@@ -14,5 +14,6 @@
 //= require jquery3
 //= require popper
 //= require bootstrap-sprockets
+//= require cable
 //= require inventory_monitor
-
+//= require product

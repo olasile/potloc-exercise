@@ -1,4 +1,4 @@
-class DashboardController < ApplicationController
+class InventoryMonitorController < ApplicationController
   before_action :authenticate_admin!
 
   def index
