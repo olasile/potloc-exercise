@@ -1,9 +1,0 @@
-<div class="row mt-4 ms-0 border-bottom">
-  <div class="col-md-12 ps-0">
-    <h3>Edit <%= @store.name %></h3>
-  </div>
-</div>
-
-<%= form_for @store, url: store_path(@store.id), method: :put do |f| %>
-  <%= render partial: 'form', locals: { f: f } %>
-<% end %>
