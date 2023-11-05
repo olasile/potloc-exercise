@@ -1,5 +1,4 @@
 class OrdersController < ApplicationController
-  before_action :authenticate_admin!, only: [:index]
   def create
     order_service = OrderService.new(current_cart)
     order_service.perform

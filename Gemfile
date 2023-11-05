@@ -55,6 +55,7 @@ group :test do
   gem 'rspec-rails', '~> 4.0.2'
   gem 'shoulda-matchers', '~> 5.0'
   gem 'shoulda-callback-matchers', '~> 1.1.1'
+  gem 'database_cleaner-active_record'
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
