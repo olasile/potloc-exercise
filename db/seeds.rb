@@ -15,5 +15,3 @@
     Product.create!(name: Faker::Commerce.product_name, store: store, available: available)
   end
 end
-
-Admin.create!(email: 'admin@test.com', password: 'potlocadmin$5#@', first_name: 'Test', last_name: 'Admin')

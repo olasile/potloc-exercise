@@ -23,20 +23,20 @@ class OrderService
   def after_perform
     @cart.destroy
 
-    broadcast_to_product_channel
-    broadcast_to_inventory_monitor_channel
+    broadcast_to_products_channel
+    broadcast_to_order_notifications_channel
   end
 
-  def broadcast_to_product_channel
+  def broadcast_to_products_channel
     ActionCable.server.broadcast(
       "products",
       products: @order.order_products.map { |order_product| order_product.product.as_json(only: [:id, :available]) }
     )
   end
 
-  def broadcast_to_inventory_monitor_channel
+  def broadcast_to_order_notifications_channel
     ActionCable.server.broadcast(
-      "inventory_monitor",
+      "order_notifications",
       order_products: @order.order_products.map { |order_product| order_product.as_json(include: { product: { include: { store: { only: [:name] } } } }) }
     )
   end

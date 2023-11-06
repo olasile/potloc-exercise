@@ -1,9 +1,15 @@
 # README
 
-This is the implementation of the Potloc technical exercise.
+This is the implementation of the Potloc technical exercise. The following features have been added to the technical exercise to demonstrate my seniority and facilitate the 1-hr technical discussion.
 
-- `app/views/inventories/index.html.erb` contains the interface that can be used to monitor the inventory level changes.
-- `app/assets/javascripts/inventory_monitor.js` contains the logic for the javascript class that responds to the websocket messages.
-- I added the alert system which contains two threshold values for what is considered too high and too low. These values are configurable by passing them in a dictionary as the second parameter in the `InventoryMonitor.init()` method. 
-  - For example: `InventoryMonitor.init(output_element, { high_threshold: 90, low_threshold: 10})` will consider inventory counts >= 90 to be too high, and <=10 to be too low, and will display an alert accordingly. The values default to 80 and 5.
+- Products and stores have been moved to the database level. Rather than storing the products and stores in arrays, I have moved them to the database. This allows for a more realistic user experience.
+- I have added a search functionality for products. Products can be searched by name, and filtered by the store. Pagination has also been added. Each product shows its available amount, which is updated in real-time as users place orders.
+- I have added the ability to add products to carts, adjust cart product quantities, and place orders.
+- I have replaced the `websocketd` functionality with Rails' in-built ActionCable. This improves the code readability, and allows for a more robust implementation of the real-time inventory updates.
+- Tests have been added using Rspec.
 
+## Notes
+
+- Run `rails db:seed` to generate stores, and products.
+- The order notifications page displays new order info in real-time.
+- The product search page updates the available amounts for each product in real-time.

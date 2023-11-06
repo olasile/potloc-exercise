@@ -10,4 +10,7 @@ class OrdersController < ApplicationController
   def index
     @orders = Order.includes(order_products: [:product]).page(params[:page]).per(params[:per_page])
   end
+
+  def notifications
+  end
 end

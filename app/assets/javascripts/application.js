@@ -15,5 +15,5 @@
 //= require popper
 //= require bootstrap-sprockets
 //= require cable
-//= require inventory_monitor
+//= require order_notification
 //= require product
